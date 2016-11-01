@@ -182,7 +182,7 @@ public class GeneralPreferencesFragment extends SWEPreferenceFragment
                 PermissionsServiceFactory.setDefaultPermissions(
                         PermissionsServiceFactory.PermissionType.WEBREFINER, !(Boolean) objValue);
                 BrowserPreferencesPage.sResultExtra = PreferenceKeys.ACTION_RELOAD_PAGE;
-                restartGello(getActivity(), (Boolean) objValue);
+                restartCrumbs(getActivity(), (Boolean) objValue);
         }
 
         if (pref.getKey().equals(PreferenceKeys.PREF_NIGHTMODE_ENABLED)) {
@@ -273,7 +273,7 @@ public class GeneralPreferencesFragment extends SWEPreferenceFragment
         return false;
     }
 
-    private void restartGello(final Context context, boolean toggle) {
+    private void restartCrumbs(final Context context, boolean toggle) {
             String toastInfo;
             toastInfo = toggle ?
                 context.getResources().getString(R.string.powersave_dialog_on) :
@@ -283,7 +283,7 @@ public class GeneralPreferencesFragment extends SWEPreferenceFragment
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Log.d("Gello", "Power save mode changed, restarting...");
+                Log.d("Olay", "Power save mode changed, restarting...");
                 Intent restartIntent = context.getPackageManager()
                         .getLaunchIntentForPackage(context.getPackageName());
                 PendingIntent intent = PendingIntent.getActivity(

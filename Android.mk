@@ -1,4 +1,4 @@
-ifeq ($(GELLO_SRC),true)
+ifeq ($(CRUMB_SRC),true)
 
 LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
